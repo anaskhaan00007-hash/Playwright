@@ -1,0 +1,6 @@
+{
+   "username":"#email1" ,
+   "password": "Enter Password",
+   "signIn":"//button[@type='submit']",
+   "manageButton":"//div[@class='nav-menu-item-manage']"
+}
