@@ -3,10 +3,11 @@ const urlData= JSON.parse(JSON.stringify(require("../testData.json")))
 const loginData= JSON.parse(JSON.stringify(require("../loginData.json")))
 //test.use({viewport:{width:1780,height:1117}})
 test.use({ screenshot: "on" });
+test.describe.configure({ mode: 'parallel' })
 //test.describe.configure({retries:1})
 const loginPage = require("../Pages/LoginPage")
 
-test.describe.skip("data driven example", function()
+test.describe("data driven example", function()
 {
     for(const credentials of loginData)
     {
@@ -26,7 +27,7 @@ test.describe.skip("data driven example", function()
 })
 
 
-test.skip("dropdown test", async function ({ page }) {
+test("dropdown test", async function ({ page }) {
     await page.goto(urlData.dropDownUrl);
     const dropdown1 = page.locator("//select[@id='dropdown']")
     await expect(dropdown1).toBeVisible();
@@ -41,7 +42,7 @@ test.skip("dropdown test", async function ({ page }) {
 })
 
 
-test.skip("handle alerts", async ({ page, browser }) => {
+test("handle alerts", async ({ page, browser }) => {
     await page.goto(urlData.alertUrl)
     const alert = await page.locator("//button[text()='Click for JS Alert']")
     const confirm = await page.locator("//button[text()='Click for JS Confirm']")
@@ -67,7 +68,7 @@ test.skip("handle alerts", async ({ page, browser }) => {
     await promt.click()
 })
 
-test.skip("handle windows", async ({ browser }) => {
+test("handle windows", async ({ browser }) => {
     const contextPage = await browser.newContext()
     const page = await contextPage.newPage()
     await page.goto(urlData.windowsUrl)

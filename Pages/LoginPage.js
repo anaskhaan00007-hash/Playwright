@@ -6,13 +6,14 @@ class LoginPage
  {
    const pagelocators= JSON.parse(JSON.stringify(require("../pageLocators.json")))
     this.page = page;
-    this.username = pagelocators.username
     this.password = pagelocators.password
     this.signIn = pagelocators.signIn
     this.manageButton = pagelocators.manageButton
+    this.username = pagelocators.username
  }
 
  async loginToApplication(user, pass) {
+    await expect(this.page).toHaveScreenshot('loginPage.png')
     await this.page.fill(this.username,user)
     await this.page.getByPlaceholder(this.password).fill(pass)
     await this.page.locator(this.signIn).click()

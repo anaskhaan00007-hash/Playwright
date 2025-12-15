@@ -11,5 +11,8 @@
     "@playwright/test": "^1.55.1",
     "@types/node": "^24.5.2",
     "allure-playwright": "^3.4.1"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5"
   }
 }
