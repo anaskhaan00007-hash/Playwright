@@ -16,6 +16,7 @@ const worksheet = workbook.Sheets["Sheet1"]
 const xlsxToJson = XLSX.utils.sheet_to_json(worksheet)
 const user = xlsxToJson[0].Username
 const pass = xlsxToJson[0].Password
+console.log("Excel Data "+user+" "+pass)
 
     page.goto(urlData.windowsUrl)
     const login = new loginPage(page)
